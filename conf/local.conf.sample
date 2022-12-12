@@ -3,10 +3,11 @@ CONF_VERSION = "2"
 MACHINE = "bananapi-m2-zero"
 DISTRO = "poky"
 
-PACKAGE_CLASSES ?= "package_rpm"
+PACKAGE_CLASSES ?= "package_ipk"
 
-EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
+EXTRA_IMAGE_FEATURES ?= "debug-tweaks package-management"
 CORE_IMAGE_EXTRA_INSTALL:append = "openssh openssh-sftp openssh-sftp-server"
+IMAGE_INSTALL:append = " opkg nginx python3 python3-pip htop ntp packagegroup-core-buildessential "
 
 USER_CLASSES ?= "buildstats"
 
